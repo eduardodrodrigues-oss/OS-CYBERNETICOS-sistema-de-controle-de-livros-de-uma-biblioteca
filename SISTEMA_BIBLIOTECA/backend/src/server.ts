@@ -17,13 +17,13 @@ const PORT = Number(process.env.PORT || 3000);
 
 // Rota inicial
 app.get('/', (req, res) =>{
-    res.json({mensagem: "Aetheria API online!"})
+    res.json({mensagem: "siste ma funcionando"})
 })
 
 app.get('/livros', async (req, res) => {
     try {
         const [procura] = await db.query('SELECT titulo, autor, isbn, quantidade, limite_por_usuario, data_cadastro FROM livros')
-        res.status(201).json(procura)
+        res.status(200).json(procura)
     } catch (error) {
         console.error('Erro no get / livros', error)
         res.status(500).json({erro: "erro ao consultar jogadores no banco de dados. Favor tentar novamente"})
